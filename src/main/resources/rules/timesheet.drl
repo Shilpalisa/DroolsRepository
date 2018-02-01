@@ -1,0 +1,20 @@
+package rules
+import com.sample.Timesheet;
+rule "Hours Less"
+    when
+        timesheet:Timesheet(hours<8)
+    then
+        System.out.println("employee hours less");
+        timesheet.setSalary(1000);
+        timesheet.setHours(11);
+    
+end
+
+rule "Hours more"
+   
+    when
+     timesheet:Timesheet(hours>10)
+    then
+      System.out.println("employee hours more");
+      timesheet.setSalary(10000);
+end
